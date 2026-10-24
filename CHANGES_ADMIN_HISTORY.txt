@@ -1,0 +1,21 @@
+Updates applied to the Online Quiz System
+
+Admin system-wide history
+- Added admin/quiz_history.php with filters for student name/email, semester, subject, and quiz ID.
+- Added admin/quiz_attempt.php for a single quiz attempt's details.
+- Added admin/student_history.php to show an individual student's quiz and practice history.
+- Added admin/teacher_history.php to show a teacher's quizzes, practice materials, and attempts on their quizzes.
+- Added admin/practice_history.php to list all practice materials, their creator/date, and student practice attempts.
+- Updated the admin dashboard with clickable summary cards for teachers, students, quizzes, materials, quiz attempts, and practice attempts.
+- Updated admin navigation and added links from student, teacher, and quiz lists to their related history.
+
+Clickable cards
+- Added assets/card-links.js and styling to make cards with one clear destination clickable and keyboard accessible.
+- Added navigation destinations to teacher dashboard summary cards and student dashboard summary cards.
+- Cards containing forms or multiple different actions are deliberately not made wholly clickable, to prevent accidental navigation while editing or using controls.
+
+Compatibility
+- Preserved the existing database schema and db.php connection configuration (MySQL port 3307).
+- PHP syntax checked all project PHP files successfully with php -l.
+
+Note: These pages expect the existing schema.sql tables and columns, including created_at, quiz_history, practice_history, created_by, and semester.

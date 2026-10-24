@@ -1,0 +1,25 @@
+CHANGES INCLUDED
+
+1. Quiz semester targeting: teachers choose Semester 1-8 when creating a quiz. Students only see quizzes matching their own semester.
+2. Quiz countdown: the attempt start and expiry are stored server-side. Refreshing does not reset the timer; the page auto-submits at zero and late answers are not scored. Submitted quizzes are removed from available quizzes and cannot be reopened for another attempt.
+3. Teacher results: results are grouped by quiz/date with subject and quiz title. Click a date to see the list of students who attempted that quiz on that date.
+4. Practice PDFs: teachers can upload a PDF (up to 15 MB) and/or provide text content. Material cards are clickable; students can open/download and view the PDF in the material page.
+5. Existing MySQL configuration on port 3307 is retained.
+
+IMPORTANT SETUP
+- Back up your project and database before replacing files.
+- Extract this folder as C:\\xampp\\htdocs\\Vanshika (or adjust the URL to match the folder name).
+- The app attempts to add the new semester and PDF columns automatically when relevant pages are opened. You may alternatively import the updated schema.sql into a fresh database; do not re-import it over an existing database unless you understand the effects.
+- Set each student's semester in the student record. Quiz semester labels are Semester 1 through Semester 8.
+- Ensure PHP upload_max_filesize and post_max_size are at least 15M for PDF uploads.
+- PDF uploads are stored in uploads/materials/.
+
+Validation: PHP syntax checked for all PHP files. Live database/browser testing was not possible in this environment.
+
+
+QUIZ CLOSING DEADLINE UPDATE
+- Teachers must set a closing date and time when creating/editing a quiz.
+- Student quiz list hides quizzes once the deadline passes.
+- take_quiz.php enforces the deadline server-side, so old/direct links cannot bypass it.
+- The per-attempt duration timer remains separate and begins when a student opens the quiz.
+- Existing quizzes with no deadline remain available until a teacher sets one.
